@@ -1,0 +1,97 @@
+:root {
+  --bg-color-dark: rgb(46, 46, 46);
+  --color-gray: rgb(192, 192, 192);
+}
+
+/* Base */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+h1 {
+  font-size: 6.4rem;
+  color: var(--color-gray);
+}
+
+h2 {
+  color: var(--color-gray);
+  font-size: 2.4rem;
+  width: 40rem;
+  font-weight: 500;
+  margin-top: 64px;
+}
+
+section {
+  min-height: 100vh;
+  background-color: var(--bg-color-dark);
+}
+
+/* Helpers */
+.p-5 {
+  padding: 64px;
+}
+
+.mt-5 {
+  margin-top: 64px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Slide Style */
+.video-slide {
+  display: flex;
+  justify-content: center;
+  column-gap: 64px;
+  cursor: grab;
+}
+
+@media (max-width: 768px) {
+  .video-slide {
+    flex-direction: column;
+    row-gap: 64px;
+  }
+}
+
+.custom-video-arrows {
+  position: absolute;
+  bottom: -57px;
+  left: 50%;
+}
+
+.custom-video-arrow {
+  padding: 24px;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.custom-video-arrow--in-active {
+  opacity: 0.1;
+  cursor: default;
+}
+
+.custom-video-arrow--in-active:hover {
+  opacity: 0.1;
+}
+
+.custom-video-arrow svg {
+  position: absolute;
+}
+
+.custom-video-arrow--right {
+  left: 48px;
+}
+
+.custom-video-arrow--left {
+  left: -48px;
+}
