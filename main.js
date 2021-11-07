@@ -10,14 +10,26 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   });
 
-  splide.on("arrows:updated", function (e) {
+  splide.on("arrows:updated", function () {
     const arrow = document.querySelectorAll(".custom-video-arrow");
+
     arrow.forEach((arrow) => {
       if (arrow.hasAttribute("disabled"))
-        arrow.classList.add("custom-video-arrow--in-active");
-      else arrow.classList.remove("custom-video-arrow--in-active");
+        arrow.classList.add("custom-video-arrow--disabled");
+      else arrow.classList.remove("custom-video-arrow--disabled");
     });
   });
+
+  if (window.innerWidth >= 768) {
+    splide.on("visible", function (e) {
+      const arrows = document.querySelector(".custom-video-arrows");
+      const left = Math.floor(
+        e.slide.firstElementChild.getBoundingClientRect().left
+      );
+
+      arrows.style.left = `${Math.ceil(left / 15) * 15 - 16}px`;
+    });
+  }
 
   splide.mount();
 });

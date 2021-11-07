@@ -25,9 +25,15 @@ h1 {
 h2 {
   color: var(--color-gray);
   font-size: 2.4rem;
-  width: 40rem;
+  max-width: 40rem;
   font-weight: 500;
   margin-top: 64px;
+}
+
+@media (max-width: 768px) {
+  h2 {
+    max-width: 100%;
+  }
 }
 
 section {
@@ -51,22 +57,29 @@ section {
 /* Slide Style */
 .video-slide {
   display: flex;
+  padding: 24px;
   justify-content: center;
-  column-gap: 64px;
-  cursor: grab;
 }
 
 @media (max-width: 768px) {
   .video-slide {
     flex-direction: column;
-    row-gap: 64px;
+    align-items: center;
+    row-gap: 32px;
   }
 }
 
 .custom-video-arrows {
   position: absolute;
-  bottom: -57px;
-  left: 50%;
+  bottom: 24px;
+}
+
+@media (max-width: 768px) {
+  .custom-video-arrows {
+    bottom: 0;
+    left: 50%;
+    transform: translate(0, -50%);
+  }
 }
 
 .custom-video-arrow {
@@ -75,12 +88,12 @@ section {
   transition: 0.3s;
 }
 
-.custom-video-arrow--in-active {
+.custom-video-arrow--disabled {
   opacity: 0.1;
   cursor: default;
 }
 
-.custom-video-arrow--in-active:hover {
+.custom-video-arrow--disabled:hover {
   opacity: 0.1;
 }
 
