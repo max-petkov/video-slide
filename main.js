@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const splide = new Splide("#videoSlide", {
     pagination: false,
     classes: {
-      arrows: "splide__arrows custom-video-arrows",
+      arrows: "splide__arrows container-custom-arrows",
       arrow: "splide__arrow custom-video-arrow",
       prev: "splide__arrow--prev custom-video-arrow--left",
       next: "splide__arrow--next custom-video-arrow--right",
@@ -20,16 +20,18 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  if (window.innerWidth >= 768) {
-    splide.on("visible", function (e) {
-      const arrows = document.querySelector(".custom-video-arrows");
-      const left = Math.floor(
-        e.slide.firstElementChild.getBoundingClientRect().left
-      );
+  splide.on("active", function (e) {
+    const arrows = document.querySelector(".container-custom-arrows");
+    const left = Math.floor(
+      e.slide.firstElementChild.getBoundingClientRect().left
+    );
 
+    const bottom = e;
+    console.log(bottom.slide.getBoundingClientRect());
+
+    if (window.innerWidth >= 768)
       arrows.style.left = `${Math.ceil(left / 15) * 15 - 16}px`;
-    });
-  }
+  });
 
   splide.mount();
 });

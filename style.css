@@ -69,13 +69,15 @@ section {
   }
 }
 
-.custom-video-arrows {
+.container-custom-arrows {
   position: absolute;
-  bottom: 24px;
+  bottom: 48px;
+  transition: 0.2s;
+  z-index: 1;
 }
 
 @media (max-width: 768px) {
-  .custom-video-arrows {
+  .container-custom-arrows {
     bottom: 0;
     left: 50%;
     transform: translate(0, -50%);
@@ -84,8 +86,15 @@ section {
 
 .custom-video-arrow {
   padding: 24px;
+  background-color: #4e535f;
   opacity: 0.8;
-  transition: 0.3s;
+  transition: 0.2s;
+}
+
+.custom-video-arrow svg {
+  fill: #fff;
+  width: 21px;
+  height: 21px;
 }
 
 .custom-video-arrow--disabled {
